@@ -1,19 +1,19 @@
-import { IsDateString, IsNotEmpty, IsNumber } from 'class-validator'
+import { IsDateString, IsNotEmpty, IsNumber } from 'class-validator';
 
 export class CreateCrimeRateDto {
-    @IsNumber()
-    @IsNotEmpty()
-    cityId: number;
+  @IsNumber()
+  @IsNotEmpty()
+  cityId: number;
 
-    @IsNumber()
-    @IsNotEmpty()
-    crimeIndex: number;
+  @IsNumber()
+  @IsNotEmpty()
+  crimeIndex: number;
 
-    @IsNumber()
-    @IsNotEmpty()
-    safetyIndex: number;
+  @IsNumber()
+  @IsNotEmpty()
+  safetyIndex: number;
 
-    @IsDateString()
-    @IsNotEmpty()
-    concludedAt: Date;
+  @IsDateString()
+  @IsNotEmpty()
+  concludedAt: Date;
 }

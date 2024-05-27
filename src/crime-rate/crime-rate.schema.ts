@@ -5,17 +5,17 @@ export type CrimeRateDocument = HydratedDocument<CrimeRate>;
 
 @Schema()
 export class CrimeRate {
-    @Prop({ required: true })
-    cityId: number;
+  @Prop({ required: true })
+  cityId: number;
 
-    @Prop({ required: true })
-    crimeIndex: number;
+  @Prop({ required: true })
+  crimeIndex: number;
 
-    @Prop({ required: true })
-    safetyIndex: number;
+  @Prop({ required: true })
+  safetyIndex: number;
 
-    @Prop({ required: true })
-    concludedAt: Date;
+  @Prop({ required: true })
+  concludedAt: Date;
 }
 
 export const CrimeRateSchema = SchemaFactory.createForClass(CrimeRate);
