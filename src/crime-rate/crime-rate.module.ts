@@ -3,14 +3,14 @@ import { CrimeRateController } from './crime-rate.controller';
 import { CrimeRateService } from './crime-rate.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CrimeRate, CrimeRateSchema } from './crime-rate.schema';
-import { HttpModule } from '@nestjs/axios';
+import { JavaApiModule } from '../shared/java-service/java-api.module';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: CrimeRate.name, schema: CrimeRateSchema },
     ]),
-    HttpModule,
+    JavaApiModule,
   ],
   controllers: [CrimeRateController],
   providers: [CrimeRateService],
