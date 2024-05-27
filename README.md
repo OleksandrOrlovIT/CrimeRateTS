@@ -5,6 +5,10 @@ Nodejs typeScript nestJS project
 
 ```bash
 $ npm install
+
+$ docker compose up
+//to start a mongodb instance
+
 ```
 
 ## Running the app
@@ -23,7 +27,7 @@ $ npm run start:prod
 ## Test
 
 ```bash
-# unit tests
+#tests
 $ npm run test
 
 # e2e tests
