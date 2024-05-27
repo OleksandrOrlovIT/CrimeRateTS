@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Injectable, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import {Body, Controller, Get, Post, Query, UsePipes, ValidationPipe} from '@nestjs/common';
 import { CreateCrimeRateDto } from './dto/createCrimeRateDto';
 import { CrimeRateService } from './crime-rate.service';
 
@@ -13,5 +13,21 @@ export class CrimeRateController {
     public async createCrimeRate(@Body() createCrimeRateDto: CreateCrimeRateDto) {
         const createdCrimeRate = await this.crimeRateService.createCrimeRate(createCrimeRateDto);
         return { id: createdCrimeRate._id };
+    }
+
+    @Get('/')
+    public async getCrimeRates(
+        @Query('cityId') cityId: number,
+        @Query('size') size: number,
+        @Query('from') from: number,
+    ) {
+        const crimeRates = await this.crimeRateService.getCrimeRates(cityId, size, from);
+        return crimeRates;
+    }
+
+    @Post('/_counts')
+    @UsePipes(new ValidationPipe())
+    public async getCrimeRatesCounts(@Body('cityIds') cityIds: number[]): Promise<{ [key: number]: number }> {
+        return await this.crimeRateService.getCrimeRatesCount(cityIds);
     }
 }
