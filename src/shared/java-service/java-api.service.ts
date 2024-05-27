@@ -5,8 +5,6 @@ import { HttpService } from '@nestjs/axios';
 
 @Injectable()
 export class JavaApiService {
-
-
   constructor(private readonly httpService: HttpService) {
   }
 
