@@ -1,14 +1,6 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Post,
-  Query,
-  UsePipes,
-  ValidationPipe,
-} from '@nestjs/common';
-import { CreateCrimeRateDto } from './dto/createCrimeRateDto';
-import { CrimeRateService } from './crime-rate.service';
+import { Body, Controller, Get, Post, Query, UsePipes, ValidationPipe } from "@nestjs/common";
+import { CreateCrimeRateDto } from "./dto/createCrimeRateDto";
+import { CrimeRateService } from "./crime-rate.service";
 
 @Controller('api/crime-rate')
 export class CrimeRateController {
@@ -27,8 +19,7 @@ export class CrimeRateController {
     @Query('size') size: number,
     @Query('from') from: number,
   ) {
-    const crimeRates = await this.crimeRateService.getCrimeRates(cityId, size, from);
-    return crimeRates;
+    return await this.crimeRateService.getCrimeRates(cityId, size, from);
   }
 
   @Post('/_counts')
